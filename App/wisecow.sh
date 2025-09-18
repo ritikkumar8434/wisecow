@@ -15,13 +15,17 @@ handleRequest() {
     # 1) Process the request
 	get_api
 	mod=`fortune`
+	body="<pre>$(cowsay "$mod")</pre>"
+    length=$(echo -n "$body" | wc -c)
 
-cat <<EOF > $RSPFILE
-HTTP/1.1 200
+    {
+        printf 'HTTP/1.1 200 OK\r\n'
+        printf 'Content-Type: text/html\r\n'
+        printf 'Content-Length: %s\r\n' "$length"
+        printf '\r\n'
+        printf '%s' "$body"
+    } > $RSPFILE
 
-
-<pre>`cowsay $mod`</pre>
-EOF
 }
 
 prerequisites() {
@@ -29,7 +33,7 @@ prerequisites() {
 	command -v fortune >/dev/null 2>&1 || 
 		{ 
 			echo "Install prerequisites."
-			exit 1
+		
 		}
 }
 
