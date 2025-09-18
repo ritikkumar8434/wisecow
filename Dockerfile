@@ -12,7 +12,7 @@ RUN apt-get update \
 
 # Create app directory
 WORKDIR /app
-COPY wisecow.sh /app/wisecow.sh
+COPY App/wisecow.sh /app/wisecow.sh
 
 # Fix line endings and permissions
 RUN sed -i 's/\r$//' /app/wisecow.sh && chmod +x /app/wisecow.sh
