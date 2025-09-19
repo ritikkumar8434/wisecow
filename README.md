@@ -117,6 +117,17 @@ kubectl apply -f k8s/ingress.yaml
 ```
 
 ---
+### 7.4 Add DNS resolution in /etc/hosts
+
+path: C:\Windows\System32\drivers\etc\hosts
+```
+127.0.0.1 wisecow.local #add any domain you wish to
+```
+### Enable Minikube Tunnel for Ingress:
+```
+minikube tunnel
+
+```
 
 ## 8. Verification
 
@@ -130,7 +141,11 @@ kubectl get svc
 # Verify ingress
 kubectl get ingress
 ```
-
+## Connection Establishment
+if everything run fines
+```url
+https://wisecow.local
+```
 
 # Bash Scripting for automation tasks:
 
