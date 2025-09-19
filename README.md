@@ -159,3 +159,9 @@ For CI/CD automatic deployment, GitHub runners must have network access to your 
 For optional PS3 (KubeArmor), use WSL2/Linux VM or Kind in Linux — Docker Desktop on Windows often lacks /sys/kernel/security required by KubeArmor.
 
 Replace yourhubuser with your actual Docker Hub username (or GHCR path if you use GitHub Container Registry).
+
+## Proof of TLS Deployment
+
+The Wisecow application is successfully deployed with TLS on Kubernetes.  
+
+![TLS Certified Wisecow App](./wisecow.png)
